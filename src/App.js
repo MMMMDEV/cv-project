@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./normalize.css";
+import "./style.css";
+import React, { useState } from "react";
+import Header from "./Header";
+import Education from "./Education";
+import Experience from "./Experience";
 
 function App() {
+  const [edit, setEdit] = useState(false);
+
+  const buttonHandleClick = () => {
+    setEdit((prevState) => !prevState);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header display={edit} />
+      <Education display={edit} />
+      <div className="spacer-container">
+        <div className="spacer"></div>
+      </div>
+      <Experience display={edit} />
+      <div className="Buttons">
+        {edit === true ? (
+          <button className="edit-btn" onClick={buttonHandleClick}>
+            Edit
+          </button>
+        ) : (
+          <button className="submit-btn" onClick={buttonHandleClick}>
+            Submit
+          </button>
+        )}
+      </div>
     </div>
   );
 }

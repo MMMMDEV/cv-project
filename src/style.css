@@ -1,0 +1,195 @@
+:root {
+  --left-padding: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Inter";
+}
+
+/* Header */
+
+.Header {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: linear-gradient(275.07deg, #4261be 0%, #758bfd 50%, #4261be 100%);
+}
+
+.left-header {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: var(--left-padding);
+}
+
+.header-input-container,
+.education-input-container,
+.experience-input-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 14px;
+  color: #f9f9f9;
+}
+
+.header-input-container > input {
+  color: #f9f9f9;
+}
+
+.labels {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.input-box {
+  width: 120px;
+  height: 20px;
+  background-color: transparent;
+  border: 1.5px solid #0a122a;
+  border-radius: 5px;
+  font-size: 10px;
+  padding: 3px;
+}
+
+.input-box:invalid {
+  border: 1.5px solid rgb(255, 130, 130);
+}
+
+::placeholder {
+  color: #b9b9b9;
+}
+
+.person-icon-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.person-icon {
+  width: 125px;
+  padding-right: 20px;
+}
+
+/* Education */
+
+.Education,
+.Experience {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: var(--left-padding);
+  color: #0a122a;
+  gap: 18px;
+}
+
+.education-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.education-input-container {
+  color: #0a122a;
+}
+
+.education-inputs {
+  width: 150px;
+  height: 20px;
+  background-color: transparent;
+  border: 1.5px solid #0a122a;
+  border-radius: 5px;
+  font-size: 10px;
+  padding: 3px;
+}
+
+/* spacer */
+
+.spacer-container {
+  width: 100%;
+  padding-left: var(--left-padding);
+  padding-right: var(--left-padding);
+  margin-top: 20px;
+}
+
+.spacer {
+  width: 100%;
+  height: 2px;
+  border-radius: 50px;
+  background-color: #0a122a;
+}
+
+/* experience */
+
+.experience-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.experience-input-container {
+  color: #0a122a;
+}
+
+/* Buttons */
+
+.Buttons {
+  width: 100%;
+  height: 70px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-btn,
+.edit-btn {
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  background-color: #758bfd;
+  border: 0px solid transparent;
+  box-shadow: -3px 4px 5px rgba(4, 4, 4, 0.47);
+  border-radius: 10px;
+  font-weight: 500;
+  color: #f9f9f9;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+.submit-btn:active,
+.edit-btn:active {
+  translate: -3px 4px;
+  box-shadow: none;
+}
