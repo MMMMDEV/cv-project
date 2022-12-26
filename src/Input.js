@@ -10,6 +10,8 @@ export default function Input({
   maxCharacter,
   classType,
   pattern,
+  value,
+  onChange,
 }) {
   return (
     <div className={classType}>
@@ -24,6 +26,8 @@ export default function Input({
         minLength={minCharacter}
         maxLength={maxCharacter}
         pattern={pattern}
+        value={value}
+        onChange={onChange}
       ></input>
     </div>
   );
@@ -38,4 +42,6 @@ Input.propTypes = {
   minCharacter: PropTypes.number,
   maxCharacter: PropTypes.number,
   pattern: PropTypes.any,
+  value: PropTypes.any,
+  onChange: PropTypes.any,
 };

@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./Input";
 import PropTypes from "prop-types";
+import Label from "./Label";
 
 export default function Experience({ display }) {
+  const [formData, setFormData] = useState({
+    Company: "",
+    Position: "",
+    Task: "",
+    PositionTime: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prevData) => {
+      const { name, value } = e.target;
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
+  };
+
   return (
     <div className="Experience">
       <h3 className="experience-title">Experience</h3>
@@ -16,6 +34,8 @@ export default function Experience({ display }) {
             maxCharacter={30}
             placeHolder="Company"
             classType="experience-input-container"
+            value={formData.Company}
+            onChange={handleChange}
           />
           <Input
             name="Position"
@@ -25,6 +45,8 @@ export default function Experience({ display }) {
             maxCharacter={20}
             placeHolder="ex: manager"
             classType="experience-input-container"
+            value={formData.Position}
+            onChange={handleChange}
           />
           <Input
             name="Task"
@@ -34,19 +56,40 @@ export default function Experience({ display }) {
             maxCharacter={20}
             placeHolder="ex: project manager"
             classType="experience-input-container"
+            value={formData.Task}
+            onChange={handleChange}
           />
           <Input
-            name="Position-time"
+            name="PositionTime"
             labelText="Time In Position:"
             type="Text"
             minCharacter={2}
             maxCharacter={10}
             placeHolder="ex: 2 months"
             classType="experience-input-container"
+            value={formData.PositionTime}
+            onChange={handleChange}
           />
         </>
       ) : (
-        console.log("text")
+        <>
+          <Label
+            classType="experience-input-container"
+            labelText={formData.Company}
+          />
+          <Label
+            classType="experience-input-container"
+            labelText={formData.Position}
+          />
+          <Label
+            classType="experience-input-container"
+            labelText={formData.Task}
+          />
+          <Label
+            classType="experience-input-container"
+            labelText={formData.PositionTime}
+          />
+        </>
       )}
     </div>
   );

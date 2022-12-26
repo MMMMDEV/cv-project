@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./Input";
 import personIcon from "./images/person-icon.png";
 import PropTypes from "prop-types";
+import Label from "./Label";
 
 export default function Header({ display }) {
+  const [formData, setFormData] = useState({
+    Name: "",
+    Email: "",
+    Phone: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prevData) => {
+      const { name, value } = e.target;
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
+  };
+
   const regexEmail =
     // eslint-disable-next-line no-useless-escape
     /^[a-z0-9]+(?!.*(?:\+{2,}|\-{2,}|\.{2,}))(?:[\.+\-]{0,1}[a-z0-9])*@gmail\.com$/gim;
@@ -24,6 +41,8 @@ export default function Header({ display }) {
               minCharacter={1}
               maxCharacter={15}
               classType="header-input-container"
+              value={formData.Name}
+              onChange={handleChange}
             />
 
             <Input
@@ -35,6 +54,8 @@ export default function Header({ display }) {
               maxCharacter={30}
               classType="header-input-container"
               pattern={regexEmail}
+              value={formData.Email}
+              onChange={handleChange}
             />
             <Input
               name="Phone"
@@ -45,10 +66,25 @@ export default function Header({ display }) {
               maxCharacter={15}
               classType="header-input-container"
               pattern={regexPhone}
+              value={formData.Phone}
+              onChange={handleChange}
             />
           </>
         ) : (
-          console.log("text")
+          <>
+            <Label
+              classType="header-input-container"
+              labelText={formData.Name}
+            />
+            <Label
+              classType="header-input-container"
+              labelText={formData.Email}
+            />
+            <Label
+              classType="header-input-container"
+              labelText={formData.Phone}
+            />
+          </>
         )}
       </div>
       <div className="person-icon-container">
