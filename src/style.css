@@ -1,5 +1,19 @@
 :root {
   --left-padding: 20px;
+  --right-margin: 20px;
+  --iocn-width: 100px;
+  --header-height: 150px;
+  --header-gap: 16px;
+  --section-heights: 250px;
+  --section-gap: 18px;
+  --label-font-size: 17px;
+  --input-font-size: 10px;
+  --input-height: 20px;
+  --input-width: 120px;
+  --button-width: 80px;
+  --button-height: 30px;
+  --button-font-size: 16px;
+  --title-size: 20px;
 }
 
 *,
@@ -31,7 +45,7 @@ body {
 
 .Header {
   width: 100%;
-  height: 150px;
+  height: var(--header-height);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +60,7 @@ body {
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--header-gap);
   padding-left: var(--left-padding);
 }
 
@@ -68,16 +82,16 @@ body {
 
 .labels {
   font-weight: 500;
-  font-size: 16px;
+  font-size: var(--label-font-size);
 }
 
 .input-box {
-  width: 120px;
-  height: 20px;
+  width: var(--input-width);
+  height: var(--input-height);
   background-color: transparent;
   border: 1.5px solid #0a122a;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: var(--input-font-size);
   padding: 3px;
 }
 
@@ -98,8 +112,8 @@ body {
 }
 
 .person-icon {
-  width: 125px;
-  padding-right: 20px;
+  width: var(--iocn-width);
+  margin-right: var(--right-margin);
 }
 
 /* Education */
@@ -107,18 +121,19 @@ body {
 .Education,
 .Experience {
   width: 100%;
-  height: 220px;
+  height: var(--section-heights);
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding-left: var(--left-padding);
   color: #0a122a;
-  gap: 18px;
+  gap: var(--section-gap);
 }
 
 .education-title {
   font-weight: 600;
   margin-bottom: 10px;
+  font-size: var(--title-size);
 }
 
 .education-input-container {
@@ -156,6 +171,7 @@ body {
 .experience-title {
   font-weight: 600;
   margin-bottom: 10px;
+  font-size: var(--title-size);
 }
 
 .experience-input-container {
@@ -166,7 +182,7 @@ body {
 
 .Buttons {
   width: 100%;
-  height: 70px;
+  height: 100px;
   position: relative;
   display: flex;
   align-items: center;
@@ -175,8 +191,8 @@ body {
 
 .submit-btn,
 .edit-btn {
-  width: 80px;
-  height: 30px;
+  width: var(--button-width);
+  height: var(--button-height);
   position: absolute;
   background-color: #758bfd;
   border: 0px solid transparent;
@@ -185,6 +201,7 @@ body {
   font-weight: 500;
   color: #f9f9f9;
   cursor: pointer;
+  font-size: var(--button-font-size);
   transition: ease-in-out 0.3s;
 }
 
@@ -192,4 +209,115 @@ body {
 .edit-btn:active {
   translate: -3px 4px;
   box-shadow: none;
+}
+
+/* prev text */
+
+.prev-text {
+  margin: 0;
+}
+
+/* phone horizontal */
+@media only screen and (width > 500px) {
+  :root {
+    --left-padding: 50px;
+    --right-margin: 50px;
+    --iocn-width: 120px;
+    --header-height: 180px;
+    --header-gap: 25px;
+  }
+}
+
+@media only screen and (width > 750px) {
+  :root {
+    --left-padding: 120px;
+    --right-margin: 120px;
+    --iocn-width: 130px;
+    --header-height: 180px;
+    --header-gap: 25px;
+  }
+}
+
+/* tablet */
+
+@media only screen and (width > 750px) {
+  :root {
+    --left-padding: 120px;
+    --right-margin: 120px;
+    --iocn-width: 130px;
+    --header-height: 180px;
+    --header-gap: 25px;
+    --section-heights: 300px;
+    --section-gap: 25px;
+    --label-font-size: 20px;
+    --input-font-size: 13px;
+    --input-height: 25px;
+    --input-width: 140px;
+    --button-width: 100px;
+    --button-height: 40px;
+    --button-font-size: 18px;
+    --title-size: 23px;
+  }
+}
+
+@media only screen and (width > 750px) and (height < 1000px) {
+  :root {
+    --left-padding: 160px;
+    --right-margin: 160px;
+    --iocn-width: 140px;
+    --header-height: 180px;
+    --header-gap: 25px;
+    --section-heights: 300px;
+    --section-gap: 25px;
+    --label-font-size: 20px;
+    --input-font-size: 13px;
+    --input-height: 25px;
+    --input-width: 140px;
+    --button-width: 100px;
+    --button-height: 40px;
+    --button-font-size: 18px;
+    --title-size: 23px;
+  }
+}
+
+/* desktop */
+
+@media only screen and (width > 750px) and (height > 1000px) {
+  :root {
+    --left-padding: 100px;
+    --right-margin: 100px;
+    --iocn-width: 160px;
+    --header-height: 250px;
+    --header-gap: 40px;
+    --section-heights: 400px;
+    --section-gap: 40px;
+    --label-font-size: 21px;
+    --input-font-size: 14px;
+    --input-height: 28px;
+    --input-width: 160px;
+    --button-width: 135px;
+    --button-height: 45px;
+    --button-font-size: 22px;
+    --title-size: 24px;
+  }
+}
+
+@media only screen and (width > 1500px) and (height > 1000px) {
+  :root {
+    --left-padding: 300px;
+    --right-margin: 300px;
+    --iocn-width: 160px;
+    --header-height: 250px;
+    --header-gap: 40px;
+    --section-heights: 400px;
+    --section-gap: 40px;
+    --label-font-size: 21px;
+    --input-font-size: 14px;
+    --input-height: 28px;
+    --input-width: 160px;
+    --button-width: 135px;
+    --button-height: 45px;
+    --button-font-size: 22px;
+    --title-size: 24px;
+  }
 }

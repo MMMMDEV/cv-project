@@ -75,19 +75,23 @@ export default function Experience({ display }) {
         <>
           <Label
             classType="experience-input-container"
-            labelText={formData.Company}
+            text={formData.Company}
+            labelText="Company:"
           />
           <Label
             classType="experience-input-container"
-            labelText={formData.Position}
+            text={formData.Position}
+            labelText="Position:"
           />
           <Label
             classType="experience-input-container"
-            labelText={formData.Task}
+            text={formData.Task}
+            labelText="Main Task"
           />
           <Label
             classType="experience-input-container"
-            labelText={formData.PositionTime}
+            text={formData.PositionTime}
+            labelText="Time In Position"
           />
         </>
       )}

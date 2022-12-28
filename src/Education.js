@@ -2,21 +2,26 @@ import React, { useState } from "react";
 import Input from "./Input";
 import PropTypes from "prop-types";
 import Label from "./Label";
+import { format } from "date-fns";
 
 export default function Education({ display }) {
   const [formData, setFormData] = useState({
     School: "",
     Title: "",
-    dateStart: "",
-    dateEnd: "",
+    DateStart: "",
+    DateEnd: "",
   });
 
   const handleChange = (e) => {
     setFormData((prevData) => {
       const { name, value } = e.target;
+      const newDate =
+        name === "DateStart" || name === "DateEnd"
+          ? format(new Date(value), "yyyy-MM-dd")
+          : "";
       return {
         ...prevData,
-        [name]: value,
+        [name]: name === "DateStart" || name === "DateEnd" ? newDate : value,
       };
     });
   };
@@ -53,7 +58,7 @@ export default function Education({ display }) {
             labelText="Date Start:"
             type="date"
             classType="education-input-container"
-            value={formData.dateStart}
+            value={formData.DateStart}
             onChange={handleChange}
           />
           <Input
@@ -61,7 +66,7 @@ export default function Education({ display }) {
             labelText="Date End:"
             type="date"
             classType="education-input-container"
-            value={formData.dateEnd}
+            value={formData.DateEnd}
             onChange={handleChange}
           />
         </>
@@ -69,19 +74,23 @@ export default function Education({ display }) {
         <>
           <Label
             classType="education-input-container"
-            labelText={formData.School}
+            text={formData.School}
+            labelText="School:"
           />
           <Label
             classType="education-input-container"
-            labelText={formData.Title}
+            text={formData.Title}
+            labelText="Title:"
           />
           <Label
             classType="education-input-container"
-            labelText={formData.dateStart}
+            text={formData.DateStart}
+            labelText="Date Start:"
           />
           <Label
             classType="education-input-container"
-            labelText={formData.dateEnd}
+            text={formData.DateEnd}
+            labelText="Date End:"
           />
         </>
       )}

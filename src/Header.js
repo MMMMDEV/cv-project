@@ -74,15 +74,18 @@ export default function Header({ display }) {
           <>
             <Label
               classType="header-input-container"
-              labelText={formData.Name}
+              text={formData.Name}
+              labelText="Name:"
             />
             <Label
               classType="header-input-container"
-              labelText={formData.Email}
+              text={formData.Email}
+              labelText="Email:"
             />
             <Label
               classType="header-input-container"
-              labelText={formData.Phone}
+              text={formData.Phone}
+              labelText="Phone:"
             />
           </>
         )}
